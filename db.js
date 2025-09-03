@@ -1,10 +1,21 @@
 const mongoose=require('mongoose');
-const mongoUrl='mongodb://localhost:27017/hotelrestro';
+require('dotenv').config();
+
+// mongodb url----------
+
+
+// const mongoUrl=process.env.MONGODB_URL_LOCAL;
+
+const mongoUrl=process.env.DB_URL;
+
+
 
 mongoose.connect(mongoUrl
     // useNewUrlparser:true,
     // useUnifiedTopology:true
 );
+
+
 
 const db=mongoose.connection;
 db.on('connected',()=>{
